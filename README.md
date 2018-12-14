@@ -18,9 +18,6 @@
 - [x] vue-template-compiler
 - [x] html-loader
 - [ ] url-loader
-- [ ] scss-loader
-- [ ] postcss-loader
-- [ ] csc-loader
 
 **用于创建和管理前端模板：**
 - [x] html-webpack-plugin
@@ -39,17 +36,24 @@
 
 **用于前端代码风格及语法检查和统一：**
 - [ ] eslint
-- [ ] typescript
+
+**用于规范代码的强类型语法：**
+- [x] typescript
+- [x] tslint
+- [x] tslint-loader
 
 **用于编写scss样式：**
-- [ ] scss
+- [x] node-scss
+- [x] css-loader
+- [x] sass-loader
+- [x] style-loader
+- [ ] postcss-loader
 
 **用于Vue框架**
 - [x] vue
 - [ ] vuex
-- [ ] vue-router
-- [ ] vue-property-decorator
-- [ ] vue-class-component
+- [x] vue-router
+- [x] vue-property-decorator
 
 **用于服务请求**
 - [ ] axios
@@ -84,5 +88,5 @@
 
 涉及包依赖:
 ```c
-yarn add vue vue-template-compiler vue-loader css-loader webpack-cli 
+yarn add vue vue-template-compiler vue-loader css-loader webpack-cli
 ```
