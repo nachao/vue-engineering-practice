@@ -12,12 +12,15 @@
 
 ## 技术点
 
-**用于编译源码和整个其他代码处理：**
+**用于基本的编译：**
 - [x] webpack webpack-cli
-- [x] vue-loader
-- [x] vue-template-compiler
 - [x] html-loader
 - [ ] url-loader
+
+
+**用于解析Vue框架代码：**
+- [x] vue-loader
+- [x] vue-template-compiler
 
 
 **用于运行一个开发服务环境：**
@@ -33,21 +36,26 @@
 
 
 **用于实现按需加载组件文件：**
+- [x] component: () => import('./component-file-path-name') must `export default`
 - [x] babel-plugin-syntax-dynamic-import
-- [?] @babel/polyfill
+- [ ] @babel/polyfill `?`
 
 
 **用于解决ES语法差异：**
 - [x] @babel/core @babel/env
 
+
 **用于实现后端服务渲染：**
 - [ ] vue-server-render
+
 
 **用于实现前端自动化测试：**
 - [ ] vue-test-utils
 
+
 **用于前端代码风格及语法检查和统一：**
 - [ ] eslint
+
 
 **用于规范代码的强类型语法：**
 - [x] typescript
@@ -62,6 +70,7 @@
 - [x] ~~style-loader~~（由于会和MiniCssExtractPlugin.loader冲突）
 - [ ] postcss-loader
 
+
 **用于Vue框架**
 - [x] vue
 - [ ] vuex
@@ -69,7 +78,7 @@
 - [x] vue-property-decorator
 
 **用于服务请求**
-- [ ] axios
+- [x] axios
 
 
 

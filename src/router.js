@@ -1,20 +1,22 @@
-"use strict";
-exports.__esModule = true;
-var vue_1 = require("vue");
-var vue_router_1 = require("vue-router");
-vue_1["default"].use(vue_router_1["default"]);
-exports["default"] = new vue_router_1["default"]({
+import Vue from 'vue'
+import Router from 'vue-router'
+// import { PageFirstComponent } from './component/first/component'
+
+Vue.use(Router)
+
+export default new Router({
     routes: [{
-            path: '/',
-            redirect: '/first'
-        }, {
-            path: '/first',
-            component: function () { return Promise.resolve().then(function () { return require('./component/first/component'); }); }
-        }, {
-            path: '/two',
-            component: function () { return Promise.resolve().then(function () { return require('./component/two/component'); }); }
-        }, {
-            path: '/three',
-            component: function () { return Promise.resolve().then(function () { return require('./component/three/component'); }); }
-        }]
-});
+        path: '/',
+        redirect: '/first'
+    }, {
+        path: '/first',
+        // component: PageFirstComponent
+        component: () => import('./component/first/component')
+    }, {
+        path: '/two',
+        component: () => import('./component/two/component')
+    }, {
+        path: '/three',
+        component: () => import('./component/three/component')
+    }]
+})
