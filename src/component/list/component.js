@@ -19,23 +19,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
+var axios_1 = require("axios");
 var vue_property_decorator_1 = require("vue-property-decorator");
 var component_html_1 = require("./component.html");
 require("./component.scss");
 console.log(1111, component_html_1["default"]);
-var PageThreeComponent = /** @class */ (function (_super) {
-    __extends(PageThreeComponent, _super);
-    function PageThreeComponent() {
+var ListComponent = /** @class */ (function (_super) {
+    __extends(ListComponent, _super);
+    function ListComponent() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    PageThreeComponent.prototype.mounted = function () {
+    ListComponent.prototype.mounted = function () {
         console.log(111);
+        axios_1["default"].get('https://getman.cn/mock/123')
+            .then(function (res) {
+            console.log(res);
+        });
     };
-    PageThreeComponent = __decorate([
+    ListComponent = __decorate([
         vue_property_decorator_1.Component({
             template: component_html_1["default"]
         })
-    ], PageThreeComponent);
-    return PageThreeComponent;
+    ], ListComponent);
+    return ListComponent;
 }(vue_property_decorator_1.Vue));
-exports.PageThreeComponent = PageThreeComponent;
+exports.ListComponent = ListComponent;

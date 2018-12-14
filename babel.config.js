@@ -3,7 +3,8 @@ const presets = [
 ]
 
 const plugins = [
-	['@babel/plugin-proposal-decorators', { legacy: true }]
+	['@babel/plugin-proposal-decorators', { legacy: true }],
+	'syntax-dynamic-import'
 ]
 
 module.exports = {

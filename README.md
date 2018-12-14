@@ -19,11 +19,23 @@
 - [x] html-loader
 - [ ] url-loader
 
-**用于创建和管理前端模板：**
-- [x] html-webpack-plugin
 
 **用于运行一个开发服务环境：**
 - [x] webpack-dev-server
+
+
+**用于将公共文件、样式文件、第三方抽离出：**
+- [x] mini-css-extract-plugin
+- [x] webpack.optimization.splitChunks
+- [x] html-webpack-plugin
+- [x] html-webpack-include-assets-plugin
+- [x] webpack.externals
+
+
+**用于实现按需加载组件文件：**
+- [x] babel-plugin-syntax-dynamic-import
+- [?] @babel/polyfill
+
 
 **用于解决ES语法差异：**
 - [x] @babel/core @babel/env
@@ -41,12 +53,13 @@
 - [x] typescript
 - [x] tslint
 - [x] tslint-loader
+- [x] babel-loader
 
 **用于编写scss样式：**
+- [x] ~~css-loader~~（由于仅适用scss）
 - [x] node-scss
-- [x] css-loader
 - [x] sass-loader
-- [x] style-loader
+- [x] ~~style-loader~~（由于会和MiniCssExtractPlugin.loader冲突）
 - [ ] postcss-loader
 
 **用于Vue框架**
@@ -57,6 +70,7 @@
 
 **用于服务请求**
 - [ ] axios
+
 
 
 ## 想要实践的问题或目的

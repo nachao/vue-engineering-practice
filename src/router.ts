@@ -1,23 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { PageFirstComponent } from './component/first/component'
-import { PageTwoComponent } from './component/two/component'
-import { PageThreeComponent }from './component/three/component'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [{
         path: '/',
-        component: PageFirstComponent
+        redirect: '/first'
     }, {
         path: '/first',
-        component: PageFirstComponent
+        component: () => import('./component/first/component')
     }, {
         path: '/two',
-        component: PageTwoComponent
+        component: () => import('./component/two/component')
     }, {
         path: '/three',
-        component: PageThreeComponent
+        component: () => import('./component/three/component')
     }]
 })

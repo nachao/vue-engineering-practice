@@ -1,36 +1,37 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
 	mode: 'development',
-	entry: path.resolve(__dirname, './src/app.ts'),
+    devtool: 'cheap-module-eval-source-map',
+    context: path.resolve(__dirname, './'),
+	entry: './src/app.ts',
+    externals: {
+		'axios': 'axios',
+		'vue': 'Vue',
+		'vue-router': 'VueRouter'
+	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		filename: 'app.js'
+		filename: '[name].js',
+        // chunkFilename: '[name].js'
 	},
 	resolve: {
-		alias: {
-			'vue': 'vue/dist/vue.js'
-		},
         extensions: ['.js', '.ts', '.vue', '.json']
 	},
 	module: {
 		rules: [{
-			test: /\.js$/,
-			use: 'babel-loader'
-		}, {
             test: /\.ts$/,
-            use: 'tslint-loader'
+            use: ['tslint-loader', 'babel-loader']
         }, {
 			test: /\.vue$/,
 			use: 'vue-loader'
 		}, {
-			test: /\.css$/,
-			use: ['style-loader', 'css-loader']
-		}, {
             test: /\.scss$/,
-            use: ['style-loader', 'css-loader', 'sass-loader']
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
         }, {
 			test: /\.html$/,
 			exclude: /node_modules/,
@@ -45,7 +46,21 @@ module.exports = {
 	plugins: [
 		new VueLoaderPlugin(),
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, './index.html')
+			template: path.resolve(__dirname, './index.html'),
+            favicon: path.resolve(__dirname, './favicon.png'),
+            hash: true
+		}),
+		new HtmlWebpackIncludeAssetsPlugin({
+			assets: [
+				'node_modules/axios/dist/axios.js',
+				'node_modules/vue/dist/vue.js',
+                'node_modules/vue-router/dist/vue-router.js',
+				// 'node_modules/@babel/polyfill/dist/polyfill.js'
+			],
+			append: false
+		}),
+		new MiniCssExtractPlugin({
+			// filename: '[name].css'
 		})
 	]
 }
