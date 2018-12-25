@@ -50,7 +50,14 @@
 
 
 **用于实现前端自动化测试：**
-- [ ] vue-test-utils
+- [x] mocha
+- [x] chai
+- [x] karma
+- [x] karma-chai
+- [x] karma-mocha
+- [x] karma-webpack
+- [x] karma-chrome-launcher
+- [x] vue-test-utils
 
 
 **用于前端代码风格及语法检查和统一：**
